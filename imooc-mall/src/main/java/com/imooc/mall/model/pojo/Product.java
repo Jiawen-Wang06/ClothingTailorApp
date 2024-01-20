@@ -109,4 +109,8 @@ public class Product {
     public String getColorLinks() {
         return colorLinks;
     }
+
+    public void setColorLinks(String colorLinks) {
+        this.colorLinks = colorLinks;
+    }
 }

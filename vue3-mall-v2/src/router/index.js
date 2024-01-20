@@ -38,6 +38,11 @@ const routes = [
     component: index,
   },
   {
+    path: "/",
+    name: "index",
+    component: index,
+  },
+  {
     path: "/pay",
     name: "pay",
     component: pay,

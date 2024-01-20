@@ -35,7 +35,7 @@
         </div>
           <div class="item-bottom">
             <div class="name">{{ item.name }}</div>
-            <div class="price"> <span :style="{color:'#e4393c',fontSize:'20px',fontWeight:'700'}">￥{{ item.price / 100 }}</span></div>
+            <div class="price"> <span :style="{color:'#e4393c',fontSize:'20px',fontWeight:'700'}">￥{{ item.price }}</span></div>
           
           </div>
 </div>

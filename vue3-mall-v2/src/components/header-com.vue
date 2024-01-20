@@ -2,7 +2,7 @@
   <div>
     <div class="header-wrapper">
     <header>
-    <img @click="locationFn('/index')" width="170" class="logo" src="../assets/logo.png" alt="">
+    <img @click="locationFn('/index')" width="294" class="logo" src="../assets/HomeBanner.png" alt="">
     <div class="right-wrapper">
         <div class="search-wrapper">
           <el-input class="input-search" v-model="searchName" placeholder="请输入商品名称"></el-input>

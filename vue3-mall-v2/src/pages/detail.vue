@@ -25,15 +25,27 @@
               <div class="subname">
               商品名称：{{ name }}
               </div>
+
               <div class="subname">
-              其他：{{ subName }}
-              </div>
-              <div>
                 颜色：
+                <div v-for="(item, index) in colorLinks" :key="index" class="image-container">
+                  <img :src="item" alt="colorImg" class="color-img" @click="onColorImgClick(index)">
+                </div>
+              </div>
+
+              <div class="subname">
+                <div class="form-container">
+                  <label for="color">自定义颜色RGB码: </label>
+                  <input type="text" id="color" name="color">
+                  <label for="size">自定义尺寸: </label>
+                  <input type="password" id="size" name="size">
+                  <label for="number">数量: </label>
+                  <input type="number" id="number" name="number">
+                </div>
               </div>
             </div>
             <div class="left-bottom">
-                          <div class="price">售价：{{ money / 100 }}元</div>
+                          <div class="price">售价：{{ money }}元</div>
               <el-button class="buy" type="primary" @click="addFn"
                 >加入购物车</el-button
               >
@@ -82,7 +94,8 @@ import api from './api';
                 name: '默认商品',
                 subName: '默认描述',
                 money:'100.00',
-                img: ''
+                img: '',
+                colorLinks: []
             }
         },
     	components: {
@@ -105,7 +118,7 @@ import api from './api';
                     }
                 })
             },
-initData(){
+            initData(){
        let hash = window.location.hash.split('=')[1]
         http.get(api.productDetail,{
             id:hash
@@ -116,7 +129,7 @@ initData(){
                 this.subName = res.data.detail;
                 this.money = res.data.price;
                 this.stock = res.data.stock;
-              
+                this.colorLinks = res.data.colorLinks.split(';');
             }
         })
 },
@@ -124,9 +137,14 @@ initData(){
                 this.$router.push('/cart')
                 this.visible = false;
             },
+            onColorImgClick(index){
+              this.img = this.colorLinks[index];
+            }
 
         },
     }
+
+
 </script>
 
 <style lang="less" scoped>
@@ -264,4 +282,18 @@ margin-bottom: 46px;
   width: 582px;
   height:310px;
 }
+.color-img{
+  width: 60px;
+  height: 60px;
+}
+.image-container {
+  display: inline-block;
+  margin-right: 10px; /* Adjust as needed for spacing between images */
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 30% 36%;
+  grid-gap: 10px;
+}
+
 </style>

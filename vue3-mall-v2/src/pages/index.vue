@@ -3,7 +3,7 @@
     <HeaderCom></HeaderCom>
     <div class="nav-wrapper">
       <div class="middle-wrapper">
-              <div class="pop-wrapper">
+
             <el-popover
               placement="right"
               :key="index"
@@ -41,7 +41,7 @@
             </template>
 
             </el-popover>
-      </div>
+
       <div class="banner">
             <el-carousel height="447">
               <el-carousel-item>
@@ -66,7 +66,7 @@
           <div class="items-wrapper-wrapper">
           <div class="items-wrapper">
       <div class="tip">
-        <img height="27" class="item-logo" src="../assets/chang.png" alt="">
+        <img height="100%" width="100%" class="item-logo" src="../assets/dailyRecommend.png" alt="">
         <a class="more" @click="locationFn('/search')">查看全部>></a>
       </div>
       <div class="goods">
@@ -84,7 +84,7 @@
         </div>
           <div class="item-bottom">
             <div class="name">{{ item.name }}</div>
-            <div class="price"> <span :style="{color:'#e4393c',fontSize:'20px',fontWeight:'700'}">￥{{ item.price / 100 }}</span></div>
+            <div class="price"> <span :style="{color:'#e4393c',fontSize:'20px',fontWeight:'700'}">￥{{ item.price  }}</span></div>
           
           </div>
 </div>
